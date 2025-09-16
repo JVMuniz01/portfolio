@@ -1,3 +1,4 @@
+"use client";
 const projectList = [
   {
     title: "Projeto 1",
