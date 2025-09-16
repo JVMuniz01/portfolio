@@ -1,0 +1,65 @@
+import { useState, useEffect } from "react";
+
+const words = [
+  "REACT", "NEXTJS", "PORTFOLIO", "PROGRAMACAO", "JAVASCRIPT", "COMPILADOR",
+  "ARQUITETURA", "BANCO", "SISTEMA", "CODIGO", "ALGORITMO", "FUNCAO",
+  "OBJETO", "VARIAVEL", "CLASSE", "METODO", "PACOTE", "SERVIDOR",
+  "CLIENTE", "API", "TOKEN", "USUARIO", "PROJETO", "ESTRUTURA", "DADOS",
+  "COMPILAR", "LINGUAGEM", "SOFTWARE", "HARDWARE", "PROCESSADOR"
+];
+
+function getRandomWord() {
+  return words[Math.floor(Math.random() * words.length)];
+}
+
+export default function Hangman() {
+  const [word, setWord] = useState(getRandomWord);
+  const [guessedLetters, setGuessedLetters] = useState([]);
+  const [wrongAttempts, setWrongAttempts] = useState(0);
+  const maxAttempts = 6;
+
+  const displayWord = word
+    .split("")
+    .map(letter => (guessedLetters.includes(letter) ? letter : "_"))
+    .join(" ");
+
+  const handleGuess = (letter) => {
+    if (!guessedLetters.includes(letter)) {
+      setGuessedLetters([...guessedLetters, letter]);
+      if (!word.includes(letter)) {
+        setWrongAttempts(wrongAttempts + 1);
+      }
+    }
+  };
+
+  const resetGame = () => {
+    setWord(getRandomWord());
+    setGuessedLetters([]);
+    setWrongAttempts(0);
+  };
+
+  const isWinner = displayWord.replace(/ /g, "") === word;
+  const isLoser = wrongAttempts >= maxAttempts;
+
+  return (
+    <section id="hangman">
+      <h2>Jogo da Forca</h2>
+      <p>{displayWord}</p>
+      <p>Tentativas restantes: {maxAttempts - wrongAttempts}</p>
+      <div className="letters">
+        {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
+          <button
+            key={letter}
+            onClick={() => handleGuess(letter)}
+            disabled={guessedLetters.includes(letter) || isWinner || isLoser}
+          >
+            {letter}
+          </button>
+        ))}
+      </div>
+      {isWinner && <p>🎉 Parabéns! Você venceu!</p>}
+      {isLoser && <p>💀 Você perdeu! A palavra era {word}</p>}
+      <button onClick={resetGame}>Reiniciar</button>
+    </section>
+  );
+}
