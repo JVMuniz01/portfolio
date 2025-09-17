@@ -1,20 +1,14 @@
 "use client";
-import Header from "./components/Header";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import Hangman from "./components/Forca";
-import Footer from "./components/Footer";
+import Forca from "./components/Forca";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main>
-        <About />
-        <Projects />
-        <Hangman />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <About />
+      <Projects />
+      <Forca />
+    </main>
   );
 }

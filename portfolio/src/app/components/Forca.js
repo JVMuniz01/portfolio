@@ -13,7 +13,7 @@ function getRandomWord() {
   return words[Math.floor(Math.random() * words.length)];
 }
 
-export default function Hangman() {
+export default function Forca() {
   const [word, setWord] = useState(getRandomWord);
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongAttempts, setWrongAttempts] = useState(0);
@@ -43,7 +43,7 @@ export default function Hangman() {
   const isLoser = wrongAttempts >= maxAttempts;
 
   return (
-    <section id="hangman">
+    <section id="forca">
       <h2>Jogo da Forca</h2>
       <p>{displayWord}</p>
       <p>Tentativas restantes: {maxAttempts - wrongAttempts}</p>
