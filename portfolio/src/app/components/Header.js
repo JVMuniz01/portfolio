@@ -1,7 +1,9 @@
 "use client";
+import styles from "../styles/Header.module.css" 
+
 export default function Header() {
   return (
-    <header>
+    <header className={styles.header}>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>

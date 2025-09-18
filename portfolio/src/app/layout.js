@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body>
-        <Header />   {/* aparece em todas as páginas */}
+        <Header/>   {/* aparece em todas as páginas */}
         {children}   {/* aqui entra o conteúdo da page.js */}
         <Footer />   {/* aparece em todas as páginas */}
       </body>

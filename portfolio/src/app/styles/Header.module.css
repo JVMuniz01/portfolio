@@ -1,0 +1,52 @@
+/* Fundo escuro e texto branco */
+.header {
+  background-color: #121212;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Estilizando a lista da nav */
+.header ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links da navegação */
+.header li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+}
+
+/* Hover e foco nos links */
+.header li a:hover {
+  background-color: #1f1f1f;
+  color: #00bcd4;
+}
+
+/* Link ativo (opcional se usar ancoragem) */
+.header li a.active {
+  color: #00bcd4;
+  font-weight: 700;
+}
+
+/* Mobile simplificado (mesmo que você não vá usar) */
+@media (max-width: 768px) {
+  .header ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
