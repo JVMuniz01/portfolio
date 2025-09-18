@@ -1,14 +1,18 @@
 "use client";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import Forca from "./components/Forca";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main>
       <About />
       <Projects />
-      <Forca />
+      <section>
+        <h2>Extra</h2>
+        <p>Joguinho extra</p>
+        <Link href="/forca">Jogo da Forca</Link>
+      </section>
     </main>
   );
 }

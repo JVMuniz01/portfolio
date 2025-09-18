@@ -25,6 +25,7 @@ export default function Forca() {
     .join(" ");
 
   const handleGuess = (letter) => {
+    letter = letter.toUpperCase();
     if (!guessedLetters.includes(letter)) {
       setGuessedLetters([...guessedLetters, letter]);
       if (!word.includes(letter)) {
@@ -41,6 +42,19 @@ export default function Forca() {
 
   const isWinner = displayWord.replace(/ /g, "") === word;
   const isLoser = wrongAttempts >= maxAttempts;
+
+useEffect(() => {
+    const handleKeyDown = (event) => {
+      const letter = event.key.toUpperCase();
+      if (/^[A-Z]$/.test(letter)) {
+        handleGuess(letter);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [guessedLetters, wrongAttempts, word]); // dependências
+
 
   return (
     <section id="forca">
