@@ -1,0 +1,44 @@
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 8rem 15rem;
+  background-color: #1e1e1e;
+  color: #eaeaea;
+}
+
+.profilePic {
+  border-radius: 25%;
+  object-fit: cover;
+  border: 2px solid #09454d;
+  margin-left: 10rem;
+}
+
+.text {
+  max-width: 600px;
+}
+
+.text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00bcd4;
+}
+
+.text p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.techs {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.techs img {
+  transition: transform 0.2s ease;
+}
+
+.techs img:hover {
+  transform: scale(1.2);
+}

@@ -1,13 +1,20 @@
 "use client";
+import styles from "../styles/Footer.module.css";
+
 export default function Footer() {
   return (
-    <footer id="contact">
-      <h3>Contato</h3>
-      <p>Email: seuemail@email.com</p>
-      <p>
-        <a href="https://github.com/seu-usuario" target="_blank" rel="noreferrer">GitHub</a> | 
-        <a href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noreferrer"> LinkedIn</a>
-      </p>
+    <footer className={styles.footer}>
+      <h2>Contact</h2>
+      <p>Email: j040vmr@gmail.com</p>
+      <p>Phone: (81)98105-1727</p>
+      <a 
+        href="/curriculo.pdf" 
+        download 
+        className={styles.downloadButton}
+      >
+        Download Currículo
+      </a>
+      <p className={styles.copy}>© 2025 João Victor. All rights reserved.</p>
     </footer>
   );
 }

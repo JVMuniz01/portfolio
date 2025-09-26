@@ -1,0 +1,23 @@
+.extraSection {
+  padding: 2rem;
+  background-color: #2a2a2a; /* cinza escuro para diferenciar do body */
+  color: #fff;
+  text-align: center;
+}
+.forcaButton {
+  display: inline-block;
+  padding: 2rem 10rem;
+  background-color: #00bcd4; /* cor do botão */
+  color: #000000;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 4rem;
+}
+
+.forcaButton:hover {
+  background-color: #43e9ff; /* efeito hover mais claro */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+}

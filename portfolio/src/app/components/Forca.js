@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import styles from "../styles/Forca.module.css";
 
 const words = [
   "REACT", "NEXTJS", "PORTFOLIO", "PROGRAMACAO", "JAVASCRIPT", "COMPILADOR",
@@ -57,24 +58,43 @@ useEffect(() => {
 
 
   return (
-    <section id="forca">
-      <h2>Jogo da Forca</h2>
-      <p>{displayWord}</p>
-      <p>Tentativas restantes: {maxAttempts - wrongAttempts}</p>
-      <div className="letters">
-        {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
-          <button
-            key={letter}
-            onClick={() => handleGuess(letter)}
-            disabled={guessedLetters.includes(letter) || isWinner || isLoser}
-          >
-            {letter}
-          </button>
-        ))}
+    <section id="forca" className={styles.forca}>
+      <h2 className={styles.title}>Jogo da Forca</h2>
+
+      <div className={styles.gameArea}>
+        <div className={styles.display}>
+          <p className={styles.word}>{displayWord}</p>
+          <p className={styles.attempts}>Tentativas restantes: <strong>{maxAttempts - wrongAttempts}</strong></p>
+        </div>
+
+        <div className={styles.letters}>
+          {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => {
+            const disabled = guessedLetters.includes(letter) || isWinner || isLoser;
+            const correct = guessedLetters.includes(letter) && word.includes(letter);
+            return (
+              <button
+                key={letter}
+                className={`${styles.letterBtn} ${disabled ? styles.disabled : ""} ${correct ? styles.correct : ""}`}
+                onClick={() => handleGuess(letter)}
+                disabled={disabled}
+                aria-label={`Letra ${letter}`}
+                title={letter}
+              >
+                {letter}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className={styles.actions}>
+          <button className={styles.resetBtn} onClick={resetGame}>Reiniciar</button>
+        </div>
+
+        <div className={styles.messageArea}>
+          {isWinner && <p className={styles.win}>🎉 Parabéns! Você venceu! A palavra é <strong>{word}</strong>.</p>}
+          {isLoser && <p className={styles.lose}>💀 Você perdeu! A palavra era <strong>{word}</strong>.</p>}
+        </div>
       </div>
-      {isWinner && <p>🎉 Parabéns! Você venceu!</p>}
-      {isLoser && <p>💀 Você perdeu! A palavra era {word}</p>}
-      <button onClick={resetGame}>Reiniciar</button>
     </section>
   );
 }
