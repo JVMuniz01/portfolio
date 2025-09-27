@@ -16,8 +16,8 @@ export default function About() {
       <div className={styles.text}>
         <h2>About me</h2>
         <p>
-          I'm a backend developer with experience in Java, Spring Boot, and PostgreSQL. I'm excited about programming with React and understanding API bindings.
-          I've always been connected to sports and e-sports and it was the biggest influence for me to pursue programming.
+          I&apos;m a backend developer with experience in Java, Spring Boot, and PostgreSQL. I&apos;m excited about programming with React and understanding API bindings.
+          I&apos;ve always been connected to sports and e-sports and it was the biggest influence for me to pursue programming.
         </p>
         <h3>knowledge</h3>
         <div className={styles.techs}>
